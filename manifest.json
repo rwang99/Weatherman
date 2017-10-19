@@ -1,0 +1,40 @@
+{
+  "manifest_version": 2,
+
+  "name": "Weatherman",
+  "description": "This extension shows the user the weather on a nearby day displayed on a page.",
+  "version": "0.0.2",
+
+  "options_page": "options.html",
+
+  "options_ui": {
+    "page":"options.html",
+    "chrome_style": false
+
+  },
+
+  "browser_action": {
+    "default_icon": "icon.png"
+  },
+
+  "icons": { "16": "icon16.png",
+              "48": "icon48.png",
+              "128": "icon128.png"},
+
+  "permissions": [
+    "http://*/*", "https://*/*",
+    "activeTab",
+    "storage",
+    "geolocation"
+  ],
+
+  "content_scripts": 
+  [
+    {
+      "matches": ["*://*/*"], 
+      "js": ["/jquery-3.2.1.min.js","myscript.js","options.js"],
+      "run_at": "document_end"  
+    }
+  ]
+
+}
